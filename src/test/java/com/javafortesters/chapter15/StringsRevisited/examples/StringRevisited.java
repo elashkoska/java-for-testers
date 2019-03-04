@@ -54,14 +54,13 @@ public class StringRevisited {
         assertThat(hello.compareTo("H") > 0, is(true));
         assertThat(hello.compareTo("Hel") > 0, is(true));
         assertThat(hello.compareToIgnoreCase("hello"), is(0));
-        String hello1 = "Hello";
         assertThat(hello.contains("He"), is(true));
         assertThat(hello.contains("Hello"), is(true));
         assertThat(hello.contains("z"), is(false));
-        String hello2 = "Hello";
         assertThat(hello.contentEquals("Hello"), is(true));
         assertThat(hello.contentEquals("hello"), is(false));
         assertThat(hello.equalsIgnoreCase("hello"), is(true));
+
         String hello5 = "Helloo";
         assertThat(hello5.endsWith("Helloo"), is(true));
         assertThat(hello5.endsWith(""), is(true));
@@ -69,6 +68,7 @@ public class StringRevisited {
         assertThat(hello5.startsWith("Hello"), is(true));
         assertThat(hello5.startsWith("he"), is(false));
         assertThat(hello5.startsWith("lo"), is(false));
+
         String empty1 = "";
         assertEquals(empty1.isEmpty(), true);
         assertThat(empty1.length(), is(0));
