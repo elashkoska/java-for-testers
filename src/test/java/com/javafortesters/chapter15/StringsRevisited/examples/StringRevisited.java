@@ -82,4 +82,52 @@ public class StringRevisited {
         assertThat(hello.indexOf("l"), is(2));
         assertThat(hello.indexOf("l", 3), is(3));
     }
+
+    @Test
+    public void replacingString()
+    {
+        String hello="Hello fella fella fella";
+        assertThat(hello.replace("fella","world"),is("Hello world world world"));
+        assertThat(hello.replaceFirst("fella","world"),is("Hello world fella fella"));
+        assertThat(hello.replaceAll("fella","world"),is("Hello world world world"));
+        assertThat("1,2,3".replaceFirst("[0-9]","digit"),is("digit,2,3"));
+        assertThat("1,2,3".replaceAll("[0-9]","digit"),is("digit,digit,digit"));
+        String text="In the lower 3rd";
+        assertThat(text.toUpperCase(),is("IN THE LOWER 3RD"));
+        assertThat(text.toLowerCase(),is("in the lower 3rd"));
+        String padded="     trim me   ";
+        assertThat(padded.length(),is(15));
+        String trimmed=padded.trim();
+        assertThat(trimmed.length(),is(7));
+        assertThat(trimmed,is("trim me"));
+        String digits="0123456789";
+        assertThat(digits.substring(5),is("56789"));
+        assertThat(digits.substring(5,6),is("5"));
+//        assertThat(digits.substring(1,3),is("3"));
+        int value=4;
+        String output="The value "+value+" was used";
+        assertThat(output,is("The value 4 was used"));
+        String template="The value %d was used";
+        String formatted=String.format(template,value);
+        assertThat(formatted,is("The value 4 was used"));
+        String example="The number of years is %d";
+        String formatted1=String.format(example,value);
+        assertThat(formatted1,is("The number of years is 4"));
+        String use="%s %s towards %d large %s";
+        assertThat(String.format(use,"Bob","took",6,"cookies"),is("Bob took towards 6 large cookies"));
+        String txt="%2$s %4$s towards %3$d large %1$s";
+        assertThat(String.format(txt,"Bob","ran",6,"onions"),is("ran onions towards 6 large Bob"));
+        String txt2="%1$s %1$s towards %3$d large %1$s";
+        assertThat(String.format(txt2,"Bob","ran",6,"onions"),is("Bob Bob towards 6 large Bob"));
+        String csv="1,2,3,4,5,6,7,8,9,10";
+        String[] results=csv.split(",");
+        assertThat(results.length,is(10));
+        assertThat(results[0],is("1"));
+        assertThat(results[9],is("10"));
+        StringBuilder builder=new StringBuilder();
+        builder.append("Hello there").replace(7,11,"World").delete(5,7);
+        assertThat(builder.toString(),is("HelloWorld"));
+    }
+
+
 }

@@ -7,7 +7,7 @@ import static com.javafortesters.domainobject.TestAppEnv.PORT;
 import com.javafortesters.domainobject.TestAppEnv;
 import org.junit.Test;
 
-/*public class TestAppEnvironmentTest {
+public class TestAppEnvironmentTest {
     @Test
     public void canGetUrlStatically()
     {
@@ -17,5 +17,5 @@ import org.junit.Test;
     }
 
 
-    } ne znam shto greshki javuva*/
+    }*/
 
