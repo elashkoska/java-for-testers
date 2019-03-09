@@ -127,6 +127,69 @@ public class StringRevisited {
         StringBuilder builder=new StringBuilder();
         builder.append("Hello there").replace(7,11,"World").delete(5,7);
         assertThat(builder.toString(),is("HelloWorld"));
+        StringBuilder builder1=new StringBuilder();
+        assertThat(builder1.capacity(),is(16));
+        StringBuilder sblen=new StringBuilder(512);
+        assertThat(sblen.capacity(),is(512));
+        assertThat(sblen.toString().length(),is(0));
+        builder.ensureCapacity(600);
+        builder.trimToSize();
+        StringBuilder builder2=new StringBuilder();
+        builder2.append("> ");
+        builder2.append(1);
+        builder2.append("+");
+        builder2.append(2);
+        char[] ca={' ','=','3'};
+        builder2.append(ca);
+        assertThat(builder2.toString(),is("> 1+2 =3"));
+    }
+    @Test
+    public void stringBuilder()
+    {
+     StringBuilder builder=new StringBuilder(5);
+     assertThat(builder.capacity(),is(5));
+     builder.append("Hello World");
+     assertThat(builder.capacity()>5,is(true));
+    }
+    @Test
+    public void stringBuilder1()
+    {
+        StringBuilder builder=new StringBuilder("123890");
+        builder.insert(3,"4567");
+        assertThat(builder.toString(),is("1234567890"));
+    }
+    @Test
+    public void stringBuilder2()
+    {
+        StringBuilder builder=new StringBuilder();
+        builder.insert(0,"a");
+        assertThat(builder.toString(),is("a"));
+        builder.insert(builder.toString().length(),"b");
+        assertThat(builder.toString(),is("ab"));
+        builder.insert(1,"c");
+        assertThat(builder.toString(),is("acb"));
+    }
+    @Test
+    public void stringBuilder3()
+    {
+        char[] ch={'.','a','b','c','d','e','f'};
+        StringBuilder builder=new StringBuilder("abgh");
+        builder.insert(2,ch,3,4);
+        assertThat(builder.toString(),is("abcdefgh"));
+        StringBuilder builder1=new StringBuilder("abcdef");
+        builder1.delete(1,3);
+        assertThat(builder1.toString(),is("adef"));
+        StringBuilder builder2=new StringBuilder("abcdefgh");
+        builder2.replace(0,4,"12345678");
+        assertThat(builder2.toString(),is("12345678efgh"));
+        StringBuilder builder3=new StringBuilder("012345678");
+        builder3.setCharAt(5,'f');
+        assertThat(builder3.toString(),is("01234f678"));
+        StringBuilder builder4=new StringBuilder("elena");
+        assertThat(builder4.reverse().toString(),is("anele"));
+        StringBuilder builder5=new StringBuilder("0123456789");
+        assertThat(builder5.substring(3,7),is("3456"));
+        assertThat(builder5.substring(3),is("3456789"));
     }
 
 
