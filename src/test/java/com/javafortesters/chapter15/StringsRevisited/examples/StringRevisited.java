@@ -84,112 +84,111 @@ public class StringRevisited {
     }
 
     @Test
-    public void replacingString()
-    {
-        String hello="Hello fella fella fella";
-        assertThat(hello.replace("fella","world"),is("Hello world world world"));
-        assertThat(hello.replaceFirst("fella","world"),is("Hello world fella fella"));
-        assertThat(hello.replaceAll("fella","world"),is("Hello world world world"));
-        assertThat("1,2,3".replaceFirst("[0-9]","digit"),is("digit,2,3"));
-        assertThat("1,2,3".replaceAll("[0-9]","digit"),is("digit,digit,digit"));
-        String text="In the lower 3rd";
-        assertThat(text.toUpperCase(),is("IN THE LOWER 3RD"));
-        assertThat(text.toLowerCase(),is("in the lower 3rd"));
-        String padded="     trim me   ";
-        assertThat(padded.length(),is(15));
-        String trimmed=padded.trim();
-        assertThat(trimmed.length(),is(7));
-        assertThat(trimmed,is("trim me"));
-        String digits="0123456789";
-        assertThat(digits.substring(5),is("56789"));
-        assertThat(digits.substring(5,6),is("5"));
+    public void replacingString() {
+        String hello = "Hello fella fella fella";
+        assertThat(hello.replace("fella", "world"), is("Hello world world world"));
+        assertThat(hello.replaceFirst("fella", "world"), is("Hello world fella fella"));
+        assertThat(hello.replaceAll("fella", "world"), is("Hello world world world"));
+        assertThat("1,2,3".replaceFirst("[0-9]", "digit"), is("digit,2,3"));
+        assertThat("1,2,3".replaceAll("[0-9]", "digit"), is("digit,digit,digit"));
+        String text = "In the lower 3rd";
+        assertThat(text.toUpperCase(), is("IN THE LOWER 3RD"));
+        assertThat(text.toLowerCase(), is("in the lower 3rd"));
+        String padded = "     trim me   ";
+        assertThat(padded.length(), is(15));
+        String trimmed = padded.trim();
+        assertThat(trimmed.length(), is(7));
+        assertThat(trimmed, is("trim me"));
+        String digits = "0123456789";
+        assertThat(digits.substring(5), is("56789"));
+        assertThat(digits.substring(5, 6), is("5"));
 //        assertThat(digits.substring(1,3),is("3"));
-        int value=4;
-        String output="The value "+value+" was used";
-        assertThat(output,is("The value 4 was used"));
-        String template="The value %d was used";
-        String formatted=String.format(template,value);
-        assertThat(formatted,is("The value 4 was used"));
-        String example="The number of years is %d";
-        String formatted1=String.format(example,value);
-        assertThat(formatted1,is("The number of years is 4"));
-        String use="%s %s towards %d large %s";
-        assertThat(String.format(use,"Bob","took",6,"cookies"),is("Bob took towards 6 large cookies"));
-        String txt="%2$s %4$s towards %3$d large %1$s";
-        assertThat(String.format(txt,"Bob","ran",6,"onions"),is("ran onions towards 6 large Bob"));
-        String txt2="%1$s %1$s towards %3$d large %1$s";
-        assertThat(String.format(txt2,"Bob","ran",6,"onions"),is("Bob Bob towards 6 large Bob"));
-        String csv="1,2,3,4,5,6,7,8,9,10";
-        String[] results=csv.split(",");
-        assertThat(results.length,is(10));
-        assertThat(results[0],is("1"));
-        assertThat(results[9],is("10"));
-        StringBuilder builder=new StringBuilder();
-        builder.append("Hello there").replace(7,11,"World").delete(5,7);
-        assertThat(builder.toString(),is("HelloWorld"));
-        StringBuilder builder1=new StringBuilder();
-        assertThat(builder1.capacity(),is(16));
-        StringBuilder sblen=new StringBuilder(512);
-        assertThat(sblen.capacity(),is(512));
-        assertThat(sblen.toString().length(),is(0));
+        int value = 4;
+        String output = "The value " + value + " was used";
+        assertThat(output, is("The value 4 was used"));
+        String template = "The value %d was used";
+        String formatted = String.format(template, value);
+        assertThat(formatted, is("The value 4 was used"));
+        String example = "The number of years is %d";
+        String formatted1 = String.format(example, value);
+        assertThat(formatted1, is("The number of years is 4"));
+        String use = "%s %s towards %d large %s";
+        assertThat(String.format(use, "Bob", "took", 6, "cookies"), is("Bob took towards 6 large cookies"));
+        String txt = "%2$s %4$s towards %3$d large %1$s";
+        assertThat(String.format(txt, "Bob", "ran", 6, "onions"), is("ran onions towards 6 large Bob"));
+        String txt2 = "%1$s %1$s towards %3$d large %1$s";
+        assertThat(String.format(txt2, "Bob", "ran", 6, "onions"), is("Bob Bob towards 6 large Bob"));
+        String csv = "1,2,3,4,5,6,7,8,9,10";
+        String[] results = csv.split(",");
+        assertThat(results.length, is(10));
+        assertThat(results[0], is("1"));
+        assertThat(results[9], is("10"));
+        StringBuilder builder = new StringBuilder();
+        builder.append("Hello there").replace(7, 11, "World").delete(5, 7);
+        assertThat(builder.toString(), is("HelloWorld"));
+        StringBuilder builder1 = new StringBuilder();
+        assertThat(builder1.capacity(), is(16));
+        StringBuilder sblen = new StringBuilder(512);
+        assertThat(sblen.capacity(), is(512));
+        assertThat(sblen.toString().length(), is(0));
         builder.ensureCapacity(600);
         builder.trimToSize();
-        StringBuilder builder2=new StringBuilder();
+        StringBuilder builder2 = new StringBuilder();
         builder2.append("> ");
         builder2.append(1);
         builder2.append("+");
         builder2.append(2);
-        char[] ca={' ','=','3'};
+        char[] ca = {' ', '=', '3'};
         builder2.append(ca);
-        assertThat(builder2.toString(),is("> 1+2 =3"));
+        assertThat(builder2.toString(), is("> 1+2 =3"));
     }
+
     @Test
-    public void stringBuilder()
-    {
-     StringBuilder builder=new StringBuilder(5);
-     assertThat(builder.capacity(),is(5));
-     builder.append("Hello World");
-     assertThat(builder.capacity()>5,is(true));
+    public void stringBuilder() {
+        StringBuilder builder = new StringBuilder(5);
+        assertThat(builder.capacity(), is(5));
+        builder.append("Hello World");
+        assertThat(builder.capacity() > 5, is(true));
     }
+
     @Test
-    public void stringBuilder1()
-    {
-        StringBuilder builder=new StringBuilder("123890");
-        builder.insert(3,"4567");
-        assertThat(builder.toString(),is("1234567890"));
+    public void stringBuilder1() {
+        StringBuilder builder = new StringBuilder("123890");
+        builder.insert(3, "4567");
+        assertThat(builder.toString(), is("1234567890"));
     }
+
     @Test
-    public void stringBuilder2()
-    {
-        StringBuilder builder=new StringBuilder();
-        builder.insert(0,"a");
-        assertThat(builder.toString(),is("a"));
-        builder.insert(builder.toString().length(),"b");
-        assertThat(builder.toString(),is("ab"));
-        builder.insert(1,"c");
-        assertThat(builder.toString(),is("acb"));
+    public void stringBuilder2() {
+        StringBuilder builder = new StringBuilder();
+        builder.insert(0, "a");
+        assertThat(builder.toString(), is("a"));
+        builder.insert(builder.toString().length(), "b");
+        assertThat(builder.toString(), is("ab"));
+        builder.insert(1, "c");
+        assertThat(builder.toString(), is("acb"));
     }
+
     @Test
-    public void stringBuilder3()
-    {
-        char[] ch={'.','a','b','c','d','e','f'};
-        StringBuilder builder=new StringBuilder("abgh");
-        builder.insert(2,ch,3,4);
-        assertThat(builder.toString(),is("abcdefgh"));
-        StringBuilder builder1=new StringBuilder("abcdef");
-        builder1.delete(1,3);
-        assertThat(builder1.toString(),is("adef"));
-        StringBuilder builder2=new StringBuilder("abcdefgh");
-        builder2.replace(0,4,"12345678");
-        assertThat(builder2.toString(),is("12345678efgh"));
-        StringBuilder builder3=new StringBuilder("012345678");
-        builder3.setCharAt(5,'f');
-        assertThat(builder3.toString(),is("01234f678"));
-        StringBuilder builder4=new StringBuilder("elena");
-        assertThat(builder4.reverse().toString(),is("anele"));
-        StringBuilder builder5=new StringBuilder("0123456789");
-        assertThat(builder5.substring(3,7),is("3456"));
-        assertThat(builder5.substring(3),is("3456789"));
+    public void stringBuilder3() {
+        char[] ch = {'.', 'a', 'b', 'c', 'd', 'e', 'f'};
+        StringBuilder builder = new StringBuilder("abgh");
+        builder.insert(2, ch, 3, 4);
+        assertThat(builder.toString(), is("abcdefgh"));
+        StringBuilder builder1 = new StringBuilder("abcdef");
+        builder1.delete(1, 3);
+        assertThat(builder1.toString(), is("adef"));
+        StringBuilder builder2 = new StringBuilder("abcdefgh");
+        builder2.replace(0, 4, "12345678");
+        assertThat(builder2.toString(), is("12345678efgh"));
+        StringBuilder builder3 = new StringBuilder("012345678");
+        builder3.setCharAt(5, 'f');
+        assertThat(builder3.toString(), is("01234f678"));
+        StringBuilder builder4 = new StringBuilder("elena");
+        assertThat(builder4.reverse().toString(), is("anele"));
+        StringBuilder builder5 = new StringBuilder("0123456789");
+        assertThat(builder5.substring(3, 7), is("3456"));
+        assertThat(builder5.substring(3), is("3456789"));
     }
 
 
