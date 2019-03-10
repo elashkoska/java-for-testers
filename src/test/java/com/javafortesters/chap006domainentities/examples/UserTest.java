@@ -23,7 +23,7 @@ public class UserTest {
     @Test
     public void userHasName() {
         User auser = new User();
-        //auser.setUsername("Bob");
+        auser.setUsername("Bob");
         assertEquals("not default username", "Bob", auser.getUsername());
     }
 
@@ -56,7 +56,7 @@ public class UserTest {
         assertArrayEquals(new int[]{2, 1, 3}, new int[]{2, 1, 3});
         assertNotNull(3);
         assertNotSame(2, 3);
-        assertNull(0);
-        assertSame(2, 3);
+        assertNull(null);
+        assertSame(3, 3);
     }
 }

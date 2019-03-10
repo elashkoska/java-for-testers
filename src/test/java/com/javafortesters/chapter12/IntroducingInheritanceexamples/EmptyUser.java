@@ -22,7 +22,7 @@ public class EmptyUser extends User {
     @Test
     public void readOnlyUser() {
         ReadOnlyUser readOnlyUser = new ReadOnlyUser();
-        assertEquals("Readnly", readOnlyUser.getPermission());
+        assertEquals("readOnly", readOnlyUser.getPermission());
         assertEquals("username", readOnlyUser.getUsername());
         assertEquals("password", readOnlyUser.getPassword());
     }

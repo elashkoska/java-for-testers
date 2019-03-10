@@ -25,7 +25,7 @@ public class RandomData {
         System.out.println(randomGaussian);
 
         int gausianInRangeCounter = 0;
-        int limit = 100000000;
+        int limit = 1000000;
         for (int i = 0; i < limit; i++) {
             double v = new Random().nextGaussian();
             if (v >= -1.0 && v <= 1) {
