@@ -3,10 +3,10 @@ package com.javafortesters.chapter15.StringsRevisited.examples;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertThat;
 
 public class StringRevisited {
     @Test
@@ -40,8 +40,8 @@ public class StringRevisited {
 
     @Test
     public void canConvertBytes() throws UnsupportedEncodingException {
-        byte[] b8Array = "Hello there".getBytes("UTF8");
-        String empty = new String();
+        byte[] b8Array = "Hello there".getBytes(StandardCharsets.UTF_8);
+        String empty = "";
         assertThat(empty.length(), is(0));
         char[] newChar = {'a', 'b'};
         assertThat("ab".toCharArray(), is(newChar));
@@ -102,7 +102,6 @@ public class StringRevisited {
         String digits = "0123456789";
         assertThat(digits.substring(5), is("56789"));
         assertThat(digits.substring(5, 6), is("5"));
-//        assertThat(digits.substring(1,3),is("3"));
         int value = 4;
         String output = "The value " + value + " was used";
         assertThat(output, is("The value 4 was used"));
@@ -190,6 +189,4 @@ public class StringRevisited {
         assertThat(builder5.substring(3, 7), is("3456"));
         assertThat(builder5.substring(3), is("3456789"));
     }
-
-
 }

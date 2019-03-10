@@ -59,8 +59,8 @@ public class CollectionsExample {
         assertEquals(true, users.isEmpty());
         User user1 = new User();
         User user2 = new User();
-        ((ArrayList<User>) users).add(user1);
-        ((ArrayList<User>) users).add(user2);
+        users.add(user1);
+        users.add(user2);
         assertEquals(2, users.size());
         assertEquals(false, users.isEmpty());
         Collection<User> users12 = new ArrayList<>();
@@ -68,7 +68,7 @@ public class CollectionsExample {
         User user123 = new User();
         users12.add(user12);
         users12.add(user123);
-        ((ArrayList<User>) users).addAll(users12);
+        users.addAll(users12);
         assertTrue(users.containsAll(users12));
         users.removeAll(users12);
         assertEquals(true, users12.contains(user12));
@@ -173,30 +173,31 @@ public class CollectionsExample {
         assertEquals(1, users.size());
     }
 
-    /* @Test
-     public void mapExercise()
-     {
-         Map<String,String> map=new HashMap<>();
-         map.put("key1","value1");
-         map.put("key2","value2");
-         map.put("key3","value3");
-         assertEquals(3,map.size());
-         map.put("key1","newvalue1");
-         assertEquals("newvalue1",map.get("key1"));
-         assertEquals("value2",map.get("key2"));
-         assertEquals("value3",map.get("key3"));
-         assertEquals(null,map.get("key4"));
-         map.remove("key1");
-         assertEquals(2,map.size());
-         map.clear();
-         assertEquals(0,map.size());
-         assertTrue(map.isEmpty());
-         assertTrue(map.containsKey("key1"));
-         assertTrue(map.containsKey("key12"));
-         assertTrue(map.containsValue("value2"));
-         assertTrue(map.containsValue("value23"));
+    @Test
+    public void mapExercise() {
+        Map<String, String> map = new HashMap<>();
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+        assertEquals(3, map.size());
+        map.put("key1", "newvalue1");
+        assertEquals("newvalue1", map.get("key1"));
+        assertEquals("value2", map.get("key2"));
+        assertEquals("value3", map.get("key3"));
+        assertEquals(null, map.get("key4"));
+        map.remove("key1");
+        assertEquals(2, map.size());
 
-     } */
+        assertFalse(map.containsKey("key1"));
+        assertTrue(map.containsKey("key2"));
+        assertTrue(map.containsValue("value2"));
+        assertFalse(map.containsValue("value23"));
+
+        map.clear();
+        assertTrue(map.isEmpty());
+        assertEquals(0, map.size());
+    }
+
     @Test
     public void exerciseMap() {
         Map<String, User> user = new HashMap<>();

@@ -53,6 +53,5 @@ public class RandomData {
         int randomIntRange = generate.nextInt(maxValue - minValue + 1) + minValue;
         assertThat(randomIntRange < maxValue, is(true));
         assertThat(randomIntRange > minValue, is(true));
-
     }
 }

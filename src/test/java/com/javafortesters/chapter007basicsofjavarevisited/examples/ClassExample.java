@@ -63,7 +63,7 @@ public class ClassExample {
         int x;
         x = 4 > 3 ? 2 : 1;
         assertEquals(2, x);
-        assertTrue(5 >= 4 ? true : false);
+        assertTrue(5 >= 4);
     }
 
     //bitwise operations on Integer data types
@@ -72,7 +72,7 @@ public class ClassExample {
         int x;
         x = 5 > 4 ? 3 : 2;
         assertEquals(3, x);
-        assertTrue(4 > 3 ? true : false);
+        assertTrue(4 > 3);
     }
     //Chapter 8 examples
 

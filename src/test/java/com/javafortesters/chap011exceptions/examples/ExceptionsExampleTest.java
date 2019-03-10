@@ -86,18 +86,18 @@ public class ExceptionsExampleTest {
         }
     }
 
-    public class InvalidPassword extends Exception {
-        public InvalidPassword(String message) {
-            super(message);
-        }
-
-    }
-
     @Test
     public void checkException() throws InvalidPassword {
         String password = "abcdelena";
         if (password.length() < 6) {
             throw new InvalidPassword("Password must be >6 chars");
+        }
+
+    }
+
+    public class InvalidPassword extends Exception {
+        public InvalidPassword(String message) {
+            super(message);
         }
 
     }

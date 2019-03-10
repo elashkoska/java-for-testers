@@ -19,6 +19,22 @@ public class EmptyUser extends User {
         assertEquals("Normal", auser.getPermission());
     }
 
+    @Test
+    public void readOnlyUser() {
+        ReadOnlyUser readOnlyUser = new ReadOnlyUser();
+        assertEquals("Readnly", readOnlyUser.getPermission());
+        assertEquals("username", readOnlyUser.getUsername());
+        assertEquals("password", readOnlyUser.getPassword());
+    }
+
+    @Test
+    public void guestExample() {
+        Guest guest = new Guest();
+        assertEquals("username", guest.getUsername());
+        assertEquals("password", guest.getPassword());
+        assertEquals("Guest", guest.getPermission());
+    }
+
     public class AdminUser extends User {
 
         public AdminUser() {
@@ -51,7 +67,6 @@ public class EmptyUser extends User {
         }
     }
 
-
     public class ReadOnlyUser extends User {
 
 
@@ -61,29 +76,12 @@ public class EmptyUser extends User {
         }
     }
 
-    @Test
-    public void readOnlyUser() {
-        ReadOnlyUser readOnlyUser = new ReadOnlyUser();
-        assertEquals("Readnly", readOnlyUser.getPermission());
-        assertEquals("username", readOnlyUser.getUsername());
-        assertEquals("password", readOnlyUser.getPassword());
-    }
-
-
     public class Guest extends User {
         @Override
         public String getPermission() {
             return "Guest";
         }
 
-    }
-
-    @Test
-    public void guestExample() {
-        Guest guest = new Guest();
-        assertEquals("username", guest.getUsername());
-        assertEquals("password", guest.getPassword());
-        assertEquals("Guest", guest.getPermission());
     }
 }
 

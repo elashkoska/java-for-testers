@@ -25,16 +25,10 @@ public class JunitExplored {
         expected.expect(ExceptionsExampleTest.InvalidPassword.class);
         User user = new User("username", "<6");
     }
+
     @Test(expected = ArithmeticException.class)
     public void expectInvalidPasswordException()
             throws ExceptionsExampleTest.InvalidPassword {
-        System.out.println(3/0);
+        System.out.println(3 / 0);
     }
-
-//    @Test
-//    @Ignore("Because it is not finished yet");
-//    public void invalidPassThrown() {
-//        expected.expect(ExceptionsExampleTest.InvalidPassword.class);
-//        User user = new User("username", "<6");
-//    }
 }

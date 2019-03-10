@@ -32,16 +32,13 @@ public class IntegerExamplesTest {
         assertEquals("hex 3 is 3", "3", Integer.toHexString(3));
         assertEquals("hex 21 is 15", "15", Integer.toHexString(21));
     }
-    /* @Test
-    public void testMinMax()
-     {
-         int min_value=-2147483648;
-         int max_value=2147483648;
-         assertEquals("integermin is",min_value,Integer.MIN_VALUE);
-         assertEquals("integermax is",max_value,Integer.MAX_VALUE);
-     }
-ne mi go kompajlira */
 
-
+    @Test
+    public void testMinMax() {
+        int min_value = -2147483648;
+        int max_value = 2147483647;
+        assertEquals("integermin is", min_value, Integer.MIN_VALUE);
+        assertEquals("integermax is", max_value, Integer.MAX_VALUE);
+    }
 }
 
