@@ -26,7 +26,6 @@ public class PropertiesTest {
         properties.list(System.out);
         assertThat(properties.containsKey("browser"), is(true));
     }
-
     @Test
     public void exerciseProperties() {
         Properties properties = new Properties();
@@ -43,6 +42,10 @@ public class PropertiesTest {
         assertThat(properties.getProperty("permission", "Admin"), is("Admin"));
     }
 
-
+    @Test
+    public void testProperties() {
+        Properties sys = System.getProperties();
+        sys.list(System.out);
+    }
 }
 
