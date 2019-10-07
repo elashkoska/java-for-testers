@@ -1,5 +1,6 @@
 package com.javafortesters.chapter19Files.examples;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.*;
@@ -31,6 +32,7 @@ public class FilesTest {
         }
     }
 
+    @Ignore
     @Test
     public void aNewFileDoesNotCreateAFile() throws IOException {
         File aTempFile = new File("d:/tempJavaForTesters.txt");
