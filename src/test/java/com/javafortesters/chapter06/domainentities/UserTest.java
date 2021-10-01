@@ -7,10 +7,12 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class UserTest {
+
     @Test
     public void canConstructANewUser() {
-        User user = new User();
-
+        User user = new User("Elena", "12345");
+        ;
+        assertEquals("Elena", user.getUsername());
     }
 
     @Test
@@ -52,10 +54,9 @@ public class UserTest {
     public void examplesAllAssertions() {
         assertThat(3, is(3));
         assertTrue(3 > 2);
-        assertFalse(3 == 2);
-        assertArrayEquals(new int[]{2, 1, 3}, new int[]{2, 1, 3});
-        assertNotNull(3);
-        assertNotSame(2, 3);
+        assertNotEquals(3, 1);
+        final int[] expected = {2, 1, 3};
+        assertArrayEquals(expected, new int[]{2, 1, 3});
         assertNull(null);
         assertSame(3, 3);
     }

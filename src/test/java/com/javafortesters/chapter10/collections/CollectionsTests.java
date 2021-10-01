@@ -7,7 +7,7 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
-public class CollectionsExample {
+public class CollectionsTests {
     @Test
     public void simpleDynamisCollection() {
         List<String> numbers0123 = new ArrayList<String>();
