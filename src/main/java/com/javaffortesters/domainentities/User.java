@@ -1,26 +1,24 @@
 package com.javaffortesters.domainentities;
 
-public class User  {
+public class User {
+    public static final String NORMAL = "Normal";
     private String username;
     private String password;
-   // private TestAppEnv TestAppEnv;
+
 
     public User() {
         this("username", "password");
 
-        // username="username";
-        //password="password";
     }
 
-    public User(String username,String password)
-    {
-        this.username=username;
-        this.password=password;
-     //   this.TestAppEnv=new TestAppEnv();
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+
     }
-    public String getPermission()
-    {
-        return "Normal";
+
+    public String getPermission() {
+        return NORMAL;
     }
 
 
@@ -32,26 +30,14 @@ public class User  {
         return password;
     }
 
-   /* public User(String username1, String password1) { //this.username=username;
-        //this.password=password;
-        username = username1;
-        password = password1;
-    }*/
 
     public void setPassword(String password) {
         this.password = password;
     }
-    public void setUsername(String username)
-    {
-        this.username=username;
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-/*    public void setUsername(String username) {
-        this.username = username;
-    }*/
-/*public String getUrl()
-{
-    return this.TestAppEnv.getUrl();
-}*/
 
 }

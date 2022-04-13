@@ -37,8 +37,8 @@ public class IntegerExamplesTest {
     public void testMinMax() {
         int min_value = -2147483648;
         int max_value = 2147483647;
-        assertEquals("integermin is", min_value, Integer.MIN_VALUE);
-        assertEquals("integermax is", max_value, Integer.MAX_VALUE);
+        assertEquals("integermin is", Integer.MIN_VALUE, min_value);
+        assertEquals("integermax is", Integer.MAX_VALUE, max_value);
     }
 }
 

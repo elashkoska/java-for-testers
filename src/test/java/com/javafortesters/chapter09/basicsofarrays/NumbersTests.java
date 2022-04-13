@@ -1,13 +1,14 @@
 package com.javafortesters.chapter09.basicsofarrays;
 
 import com.javaffortesters.domainentities.User;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
-public class Chapter9 {
+public class NumbersTests {
     @Test
     public void simpleArrayExample() {
         String[] numbers0123 = {"one", "two", "three", "zero"};
@@ -37,6 +38,8 @@ public class Chapter9 {
         for (User us : users) {
             System.out.println(us.getUsername());
         }
+
+        Assert.assertEquals("Ana", users[0].getUsername());
     }
 
     @Test
@@ -45,9 +48,10 @@ public class Chapter9 {
         for (int i = 0; i < 100; i++) {
             users[i] = new User("user" + i, "password" + i);
         }
-        for (User auser : users) {
-            System.out.println(auser.getUsername() + ',' + auser.getPassword());
+        for (User user : users) {
+            System.out.println(user.getUsername() + ',' + user.getPassword());
         }
+        Assert.assertEquals("Ana", users[0].getUsername());
     }
 
     @Test
@@ -55,31 +59,7 @@ public class Chapter9 {
         String[] weekdays = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Samstag", "Sonntag"};
         String[] workdays;
         workdays = Arrays.copyOf(weekdays, 7);
-        // assertEquals(null,weekdays[5]);
-        //assertEquals(null,weekdays[6]);
-        //weekdays[5]="Saturday";
-        //weekdays[6]="Sunday";
-        /*String[] workdays;
-        workdays=Arrays.copyOf(weekdays,3);
-        assertEquals(3,workdays.length);
-        assertEquals("Montag",workdays[0]);
-        assertEquals("Dienstag",workdays[1]);
-        assertEquals("Mittwoch",workdays[2]); */
-        /*String[] workdays=Arrays.copyOfRange(weekdays,2,5);
-        assertEquals(3,workdays.length);
-        assertEquals("Mittwoch",workdays[0]);
-        assertEquals("Donnerstag",workdays[1]);
-        assertEquals("Freitag",workdays[2]);
-        assertEquals(workdays[0],weekdays[2]);
-        assertEquals(workdays[1],weekdays[3]);
-        assertEquals(workdays[2],weekdays[4]);
-        String [] workdays=Arrays.copyOfRange(weekdays,2,7);
-        assertEquals(5,workdays.length);
-        assertEquals("Mitwwoch",workdays[0]);
-        assertEquals("Donnerstag",workdays[1]);
-        assertEquals("Freitag",workdays[2]);
-        assertEquals(null,workdays[3]);
-        assertEquals(null,workdays[4]);*/
+        Assert.assertEquals(6, weekdays.length);
     }
 
     @Test
@@ -111,7 +91,6 @@ public class Chapter9 {
             ragged2d[i] = new int[i + 1];
 
             for (int j = 0; j < i + 1; j++) {
-                //System.out.println(i + "," +j);
                 ragged2d[i][j] = j;
             }
 
@@ -137,10 +116,6 @@ public class Chapter9 {
     }
 }
 
-
-// ragged2d[0]=new int[1];
-//ragged2d[1]=new int[2];
-//ragged2d[2]=new int[3];
 
 
 
